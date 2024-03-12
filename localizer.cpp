@@ -43,8 +43,11 @@ vector< vector <float> > initialize_beliefs(vector< vector <char> > grid) {
 	vector< vector <float> > newGrid;
 
 	// your code here
-	int area = grid.size() * grid[0].size();
+	int height = grid.size();
+    int width = grid[0].size();
+	int area = height * width;
 	float beleifs_in_grid = 1 / area;
+	newGrid = zeros(height, width);
 
 	for (int i = 0; i < grid.size(); i++) {
 		for (int j = 0; j < grid[0].size(); j++) {
@@ -102,11 +105,12 @@ vector< vector <float> > move(int dy, int dx,
   // your code here
   int height = beliefs.size();
   int width = beliefs[0].size();
+  newGrid = zeros(height, width);
 
   for (int i = 0; i < height; i++) {
 	  for (int j = 0; j < width; j++) {
-		  int new_row = ((i + dx) % height);
-		  int new_col = ((j + dy) % width);
+		  int new_col = ((i + dy) % width);
+		  int new_row = ((j + dx) % height);
 		  newGrid[new_row][new_col] = beliefs[i][j];
 	  }
   }
