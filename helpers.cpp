@@ -41,9 +41,10 @@ vector< vector<float> > normalize(vector< vector <float> > grid) {
 	int width = grid[0].size();
 	float area = height * width;
 	float beliefs_in_grid = 1 / area;
+	newGrid = zeros(height, width);
 
 	for (int i = 0; i < height; i++) {
-	    for (int j = 0; i < width; j++) {
+	    for (int j = 0; j < width; j++) {
 			newGrid[i][j] = beliefs_in_grid;
 		}
 	}
@@ -91,6 +92,7 @@ vector < vector <float> > blur(vector < vector < float> > grid, float blurring) 
 	// your code here
 	int height = grid.size();
 	int width = grid[0].size();
+	newGrid = zeros(height, width);
 
 	float corner = 1.0 - blurring;
 	float center = blurring / 12.0;
