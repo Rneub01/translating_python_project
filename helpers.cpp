@@ -127,7 +127,7 @@ vector < vector <float> > blur(vector < vector < float> > grid, float blurring) 
 		}
 	}
 
-	return normalize(newGrid);
+	return newGrid;
 }
 
 /** -----------------------------------------------
