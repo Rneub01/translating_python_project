@@ -46,11 +46,11 @@ vector< vector <float> > initialize_beliefs(vector< vector <char> > grid) {
 	int height = grid.size();
     int width = grid[0].size();
 	int area = height * width;
-	float beleifs_in_grid = 1 / area;
+	float beleifs_in_grid = 1.0 / area;
 	newGrid = zeros(height, width);
 
-	for (int i = 0; i < grid.size(); i++) {
-		for (int j = 0; j < grid[0].size(); j++) {
+	for (int i = 0; i < height; i++) {
+		for (int j = 0; j < width; j++) {
 			newGrid[i][j] = beleifs_in_grid;
 		}
 	}
