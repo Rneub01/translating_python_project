@@ -171,8 +171,12 @@ vector< vector <float> > sense(char color,
 
 	for (int i = 0; i < height; i++) {
 		for (int j = 0; j < width; j++) {
-			bool color_hit = color == grid[i][j];
-			newGrid[i][j] = (beliefs[i][j] * (color_hit * p_hit + (1 - p_hit) * p_miss));
+			if (color == grid[i][j]) {
+				newGrid[i][j] = beliefs[i][j] * p_hit;
+			}
+			else {
+				newGrid[i][j] = beliefs[i][j] * p_miss;
+			}
 		}
 	}
 
